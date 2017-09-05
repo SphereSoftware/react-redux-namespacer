@@ -36,8 +36,8 @@ const initialState = {
   todos: [];
 };
 
-reduce('todos', initialState, (reducer) => {
-  reduce('getTodosSuccess', (state, todos) => {
+export default reduce('todos', initialState, (reducer) => {
+  reducer('getTodosSuccess', (state, todos) => {
     return { ...state, todos };
   });
 });
