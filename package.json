@@ -4,7 +4,11 @@
   "description": "redux logic organizer",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src --out-dir lib",
+    "clear": "rimraf lib",
+    "rebuild": "npm run clear && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint src test --ext .js"
   },
   "files": [
     "lib",
@@ -30,5 +34,14 @@
   "dependencies": {
     "lodash.mapvalues": "^4.6.0",
     "lodash.pick": "^4.4.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "eslint": "^4.6.1",
+    "rimraf": "^2.6.1"
   }
 }
