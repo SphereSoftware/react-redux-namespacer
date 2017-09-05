@@ -1,0 +1,34 @@
+{
+  "name": "react-redux-namespacer",
+  "version": "1.0.0",
+  "description": "redux logic organizer",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "lib",
+    "src",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SphereSoftware/react-redux-namespacer.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "namespace"
+  ],
+  "author": "Artem Kuzko <a.kuzko@gmail.com> (https://github.com/akuzko)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SphereSoftware/react-redux-namespacer/issues"
+  },
+  "homepage": "https://github.com/SphereSoftware/react-redux-namespacer#readme",
+  "dependencies": {
+    "lodash.mapvalues": "^4.6.0",
+    "lodash.pick": "^4.4.0"
+  }
+}
