@@ -6,7 +6,7 @@ redux logic organizer
 ## Installation
 
 ```
-npm install --save redux-store-events
+npm install --save react-redux-namespacer
 ```
 
 ## Usage
