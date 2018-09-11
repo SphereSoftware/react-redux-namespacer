@@ -46,21 +46,26 @@ export function namespace(ns, setup) {
 
   setup(dispatcher(ns), actions(ns));
 
-  function dispatchers(dispatch, picked) {
-    let namespaceDispatchers = allDispatchers[ns];
+  function dispatchers(...args) {
+    const namespaceDispatchers = allDispatchers[ns];
 
-    if (picked !== undefined) {
-      namespaceDispatchers = pick(namespaceDispatchers, picked);
+    if (typeof args[0] !== 'function') {
+      const picked = pick(namespaceDispatchers, picked)
+
+      return function(dispatch) {
+        return toProps(dispatch, picked);
+      }
     }
 
-    return mapValues(namespaceDispatchers, dispatcher =>
+    const dispatch = args[0];
+    return toProps(dispatch, namespaceDispatchers);
+  }
+
+  function toProps(dispatch, dispatchers) {
+    return mapValues(dispatchers, dispatcher =>
       function() { return dispatcher(dispatch, ...arguments); }
     );
   }
-
-  dispatchers.mapToProps = function(dispatch) {
-    return dispatchers(dispatch);
-  };
 
   dispatchers.update = function(setup) {
     setup(dispatcher(ns), actions(ns));

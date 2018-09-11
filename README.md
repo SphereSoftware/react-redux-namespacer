@@ -59,7 +59,7 @@ export default combineReducers({
 
 ### 4. Use dispatchers in your components
 
-```js
+```jsx
 // app/components/Todos.jsx
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
@@ -85,7 +85,14 @@ class Todos extends PureComponent {
   }
 }
 
-export default connect(mapStateToProps, dispatchers.mapToProps)(Todos);
+export default connect(mapStateToProps, dispatchers)(Todos);
+```
+
+If you want to explicitly map only some dispatchers to component props, you can
+do it this way:
+
+```js
+export default connect(mapStateToProps, dispatchers('getTodos', 'toggleTodo'))(Todos);
 ```
 
 ## License
